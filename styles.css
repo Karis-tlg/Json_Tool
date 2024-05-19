@@ -1,53 +1,164 @@
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --textarea-bg: #fff;
+    --textarea-border: #ccc;
+    --button-bg: #007BFF;
+    --button-hover-bg: #0056b3;
+    --output-bg: #e9ecef;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    --bg-color: #333;
+    --text-color: #f0f0f0;
+    --textarea-bg: #555;
+    --textarea-border: #777;
+    --button-bg: #4CAF50;
+    --button-hover-bg: #45a049;
+    --output-bg: #444;
 }
 
 .container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
+    background-color: var(--textarea-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+	height: 400px;
+    width: 300%;
     text-align: center;
+    position: relative;
 }
 
 h1 {
     margin-bottom: 20px;
-    color: #333;
+    color: var(--text-color);
+    font-size: 2em;
+}
+
+.text-areas {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: calc(50% - 10px); /* Sửa lại kích thước của textarea */
+    height: 200px;
+    padding: 15px;
+    border: 1px solid var(--textarea-border);
+    border-radius: 6px;
     resize: none;
     font-size: 16px;
+    background-color: var(--textarea-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+textarea[readonly] {
+    background-color: var(--output-bg);
+}
+
+.input-container textarea {
+    width: 400px; 
+    height: 200px; 
+    position: relative; 
+    top: 20px; 
+    left: 5px; 
+}
+
+.output-container textarea {
+    width: 400px; 
+    height: 200px; 
+    position: relative; 
+    top: 20px; 
+    right: 5px; 
+}
+
+
+#toggleMode {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#toggleMode:hover {
+    background-color: var(--button-hover-bg);
+}
+
+#copyButton {
+    position: absolute;
+    bottom: 25px; 
+    right: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#copyButton:hover {
+    background-color: var(--button-hover-bg);
+}
+
+#cleanButton {
+    position: absolute;
+    bottom: 25px; 
+    left: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: var(--button-bg);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#cleanButton:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
 }
 
 button {
     padding: 10px 20px;
     font-size: 16px;
     color: white;
-    background-color: #007BFF;
+    background-color: var(--button-bg);
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
-}
-
-textarea[readonly] {
-    background-color: #e9ecef;
+    background-color: var(--button-hover-bg);
 }

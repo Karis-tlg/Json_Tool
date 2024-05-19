@@ -5,13 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Cleaner</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Kiểm tra trạng thái chế độ dark mode ngay khi trang được tải
+        (function() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 </head>
 <body>
     <div class="container">
+        <button id="toggleMode" onclick="toggleMode()">Chế độ Dark/Light</button>
         <h1>Text Cleaner</h1>
-        <textarea id="inputText" placeholder="Nhập đoạn văn bản..."></textarea>
-        <button onclick="cleanText()">Xóa các đoạn comment</button>
-        <textarea id="outputText" placeholder="Kết quả sẽ hiển thị ở đây..." readonly></textarea>
+        <div class="text-areas">
+            <div class="input-container">
+                <textarea id="inputText" placeholder="Nhập đoạn văn bản..."></textarea>
+            </div>
+            <div class="output-container">
+                <textarea id="outputText" placeholder="Kết quả sẽ hiển thị ở đây..." readonly></textarea>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="cleanButton" onclick="cleanText()">Xóa các đoạn comment</button>
+            <button id="copyButton" onclick="copyText()">Copy</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
