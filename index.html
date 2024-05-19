@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Cleaner</title>
     <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script>
         // Kiểm tra trạng thái chế độ dark mode ngay khi trang được tải
         (function() {
@@ -17,7 +18,11 @@
 </head>
 <body>
     <div class="container">
-        <button id="toggleMode" onclick="toggleMode()">Chế độ Dark/Light</button>
+        <button id="toggleMode" onclick="toggleMode()">
+			<i class="fas fa-sun"></i> <!-- Icon cho chế độ Light -->
+			<i class="fas fa-moon"></i> <!-- Icon cho chế độ Dark -->
+		</button>
+
         <h1>Text Cleaner</h1>
         <div class="text-areas">
             <div class="input-container">
